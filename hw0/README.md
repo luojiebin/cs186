@@ -3,7 +3,7 @@
 In this assignment, you will set up the tools needed to submit assignments in
 CS 186.
 
-This assignment is due **Tuesday, January 24** at **11:59 PM**.
+This assignment is due **Tuesday, August 29** at **11:59 PM**.
 
 ## Instructions (brief)
 0. If you don't have one yet, create a GitHub account.
@@ -49,7 +49,7 @@ Berkeley credentials, then click "Get a new account" under Account Services.
 ## 2. Register your account with the course
 
 Register your information by filling out this
-[form](http://cs186-reg.herokuapp.com/). Be sure to put down your *3-letter* inst
+[form](cs186.eecs.berkeley.edu/registration). Be sure to put down your *3-letter* inst
 account login.
 
 Within an hour, you will receive an e-mail with a link to your personal GitHub
