@@ -22,7 +22,7 @@ It is good practice to run `git status` to make sure that you haven't inadverten
 Now, you want to add the reference to the staff repository so you call pull the new homework files:
 ```
 $ git remote add staff https://github.com/berkeley-cs186/course.git
-$ git fetch staff/master
+$ git fetch staff master
 $ git merge staff/master master
 ```
 The `git merge` will give you a warning and a merge prompt if you have made any conflicting changes to master (not really possible with hw1!).
