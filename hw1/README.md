@@ -258,6 +258,8 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
     (1 row)
     ```
 
+    *Note for the curious:* Many social network and web ranking algorithms are based on analyzing graphs in this manner---given the scale of those datasets, an approach using a scalable data processingbackend as we do here is important. Some of these techniques require finding shortest paths as a subroutine. You could extend your code above to compute [betweenness centrality](https://en.wikipedia.org/wiki/Betweenness_centrality), for example, and identify players who are at the center of the hall-of-fame network.
+
 ## Testing 
 
 You can run questions 1-4 directly using:
