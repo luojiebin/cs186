@@ -7,11 +7,31 @@
 
 In this homework, we will exercise your newly acquired SQL skills. You will be writing queries against Postgres using public data.  
 
-### Tools
+### Getting Started
 To follow these instructions **use your CS186 Vagrant VM**. If you do not use the VM, your tests may not execute correctly.
 
-To obtain the homework files, you can run `git pull` within your course directory to pull the latest version of the repo.
+First, open up Virtual Box and power on the CS186 virtual machine. Once the machine is booted up, open a terminal and go to the `course-projects` folder you created in hw0.
+```
+$ cd course-projects
+```
+Make sure that you switch to the master branch:
+```
+$ git checkout master
+```
+It is good practice to run `git status` to make sure that you haven't inadvertently changed anything in the master branch.
+Now, you want to add the reference to the staff repository so you call pull the new homework files:
+```
+$ git remote add staff https://github.com/berkeley-cs186/course.git
+$ git fetch staff/master
+$ git merge staff/master master
+```
+The `git merge` will give you a warning and a merge prompt if you have made any conflicting changes to master (not really possible with hw1!).
 
+As with hw0, create a new branch for your work: 
+```
+git checkout -b hw1
+```
+Now, you should be ready to start the homework, don't forget to push to this branch when you are done with everything.
 ### About the schema
 
 In this homework we will be working with the famous [Lahman baseball statistics database](http://www.seanlahman.com/baseball-archive/statistics/). The database contains pitching, hitting, and fielding statistics for Major League Baseball from 1871 through 2016.  It includes data from the two current leagues (American and National), four other "major" leagues (American Association, Union Association, Players League, and Federal League), and the National Association of 1871-1875. 
