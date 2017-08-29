@@ -1,0 +1,5 @@
+ namefirst | namelast | birthyear 
+-----------+----------+-----------
+ Walter    | Young    |      1980
+(1 row)
+
