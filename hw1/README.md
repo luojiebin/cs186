@@ -148,7 +148,7 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
     3. Find the `playerid`, `namefirst`, `namelast` and `schoolid` of all players who were successfully inducted into the Hall of Fame -- whether or not they played in college. Return players in *descending* order of `playerid`. Break ties on `playerid` by `schoolid` (ascending). (Note: `schoolid` will be `NULL` if they did not play in college.)
 
 3. [SaberMetrics](https://en.wikipedia.org/wiki/Sabermetrics)
-    1. Find the `playerid`, `namefirst`, `namelast`, `yearid` and single-year `slg` (Slugging Percentage) of the players with the 10 best annual Slugging Percentage recorded over all time. For statistical significance, only include players with at least 50 at-bats in the season. Order the results by `slg` descending, and break ties by `yearid, playerid` (ascending).
+    1. Find the `playerid`, `namefirst`, `namelast`, `yearid` and single-year `slg` (Slugging Percentage) of the players with the 10 best annual Slugging Percentage recorded over all time. For statistical significance, only include players with more than 50 at-bats in the season. Order the results by `slg` descending, and break ties by `yearid, playerid` (ascending).
     
        *Baseball note*: Slugging Percentage is not provided in the database; it is computed according to a [simple formula](https://en.wikipedia.org/wiki/Slugging_percentage) you can calculate from the data in the database.
     
