@@ -286,3 +286,11 @@ To help you with question 5, we have provided an alternative setup file, `hw1-q5
 ```sql
 SELECT * FROM q5_paths WHERE src = 'CA' AND dest = 'FL';
 ```
+
+##Submission
+When you are done, run the following git commands similar to like what you did in HW0 to push it to Github. And you are done!
+```
+$ git add .
+$ git commit -m "Your commit message"
+$ git push origin hw1
+```
