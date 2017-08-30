@@ -145,7 +145,7 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
 
     2. Find the players who were successfully inducted into the Hall of Fame and played in college at a school located in the state of California. For each player, return their `namefirst`, `namelast`, `playerid`, `schoolid`, and `yearid` in *descending* order of `yearid`. Break ties on `yearid` by `schoolid, playerid` (ascending).
     
-    3. Find the `playerid`, `namefirst`, `namelast` and `schoolid` of all players who were successfully inducted into the Hall of Fame -- whether or not they played in college. Return players in *descending* order of `playerid`. Break ties on `yearid` by `schoolid` (ascending). (Note: `schoolid` will be `NULL` if they did not play in college.)
+    3. Find the `playerid`, `namefirst`, `namelast` and `schoolid` of all players who were successfully inducted into the Hall of Fame -- whether or not they played in college. Return players in *descending* order of `playerid`. Break ties on `playerid` by `schoolid` (ascending). (Note: `schoolid` will be `NULL` if they did not play in college.)
 
 3. [SaberMetrics](https://en.wikipedia.org/wiki/Sabermetrics)
     1. Find the `playerid`, `namefirst`, `namelast`, `yearid` and single-year `slg` (Slugging Percentage) of the players with the 10 best annual Slugging Percentage recorded over all time. For statistical significance, only include players with at least 50 at-bats in the season. Order the results by `slg` descending, and break ties by `yearid, playerid` (ascending).
