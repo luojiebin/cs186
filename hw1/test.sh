@@ -46,7 +46,14 @@ test_query "SELECT * FROM q3i;" q3i
 test_query "SELECT * FROM q3ii;" q3ii
 test_query "SELECT * FROM q3iii ORDER BY namefirst, namelast;" q3iii
 test_query "SELECT * FROM q4i;" q4i
-test_query "SELECT * FROM q4ii;" q4ii
+test_query "SELECT * FROM q4ii WHERE binid < 9;" q4ii_bins_0_to_8
+test_query "WITH max_salary AS (SELECT MAX(salary) AS salary FROM salaries)
+    SELECT binid, low,
+           CONCAT(CASE WHEN high >= salary THEN '' ELSE 'not ' END,
+                  'at least ',
+                  salary) AS high,
+           count
+    FROM q4ii, max_salary WHERE binid = 9;" q4ii_bin_9
 test_query "SELECT * FROM q4iii;" q4iii
 test_query "SELECT * FROM q4iv ORDER BY yearid, playerid;" q4iv
 
