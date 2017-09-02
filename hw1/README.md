@@ -145,7 +145,7 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
 
         Note: a player with id `drewj.01` is listed as having failed to be
         inducted into the Hall of Fame, but does not show up in the `master`
-        table. Your query may assume that all players inducted into the Hall of Fame
+        table. Your query may assume that all people inducted into the Hall of Fame
         appear in the `master` table.
 
     2. Find the people who were successfully inducted into the Hall of Fame and played in college at a school located in the state of California. For each person, return their `namefirst`, `namelast`, `playerid`, `schoolid`, and `yearid` in *descending* order of `yearid`. Break ties on `yearid` by `schoolid, playerid` (ascending). (For this question, `yearid` refers to the year of induction into the Hall of Fame).
@@ -153,7 +153,7 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
         Note: a player may appear in the results multiple times (once per year
         in a college in California).
  
-    3. Find the `playerid`, `namefirst`, `namelast` and `schoolid` of all people who were successfully inducted into the Hall of Fame -- whether or not they played in college. Return people in *descending* order of `playerid`. Break ties on `yearid` by `schoolid` (ascending). (Note: `schoolid` will be `NULL` if they did not play in college.)
+    3. Find the `playerid`, `namefirst`, `namelast` and `schoolid` of all people who were successfully inducted into the Hall of Fame -- whether or not they played in college. Return people in *descending* order of `playerid`. Break ties on `playerid` by `schoolid` (ascending). (Note: `schoolid` will be `NULL` if they did not play in college.)
 
 3. [SaberMetrics](https://en.wikipedia.org/wiki/Sabermetrics)
     1. Find the `playerid`, `namefirst`, `namelast`, `yearid` and single-year `slg` (Slugging Percentage) of the players with the 10 best annual Slugging Percentage recorded over all time. For statistical significance, only include players with more than 50 at-bats in the season. Order the results by `slg` descending, and break ties by `yearid, playerid` (ascending).
