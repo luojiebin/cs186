@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS q5_extended_paths;
 CREATE TABLE q5_extended_paths(src, dest, length, path)
 AS
-    SELECT -- remember to remove duplicates and avoid generating cycles!
+    SELECT -- remember to remove duplicates!
 ;
 
 CREATE TABLE q5_new_paths(src, dest, length, path)
