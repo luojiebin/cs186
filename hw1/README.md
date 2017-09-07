@@ -255,7 +255,7 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
     ```
 baseball=# \i hw1-q5-while.sql
 DROP TABLE
-SELECT 332
+SELECT 0
 SELECT 0
 SELECT 12192
 DROP TABLE
