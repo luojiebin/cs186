@@ -251,21 +251,22 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
     baseball=# \i /<path-to-your-homework>/hw1-q5-while.sql'
     baseball=# \i /<path-to-your-homework>/hw1-q5-while.sql'
     ```
+    
     ...etc. Until you see a message like this:
     ```
-baseball=# \i hw1-q5-while.sql
-DROP TABLE
-SELECT 0
-SELECT 0
-SELECT 12192
-DROP TABLE
-ALTER TABLE
-DROP TABLE
-ALTER TABLE
- path_count |  status  
-------------+----------
-      12192 | FINISHED
-(1 row)
+    baseball=# \i hw1-q5-while.sql
+    DROP TABLE
+    SELECT 0
+    SELECT 0
+    SELECT 12192
+    DROP TABLE
+    ALTER TABLE
+    DROP TABLE
+    ALTER TABLE
+     path_count |  status  
+    ------------+----------
+          12192 | FINISHED
+    (1 row)
     ```
 
     *Note for the curious:* Many social network and web ranking algorithms are based on analyzing graphs in this manner---given the scale of those datasets, an approach using a scalable data processingbackend as we do here is important. Some of these techniques require finding shortest paths as a subroutine. You could extend your code above to compute [betweenness centrality](https://en.wikipedia.org/wiki/Betweenness_centrality), for example, and identify players who are at the center of the hall-of-fame network.
