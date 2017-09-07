@@ -251,20 +251,21 @@ To complete the homework, create a view for `q0` as above (via [copy-paste](http
     baseball=# \i /<path-to-your-homework>/hw1-q5-while.sql'
     baseball=# \i /<path-to-your-homework>/hw1-q5-while.sql'
     ```
+    
     ...etc. Until you see a message like this:
     ```
-    baseball=# \i '/Users/jmh/Box Sync/cs186/fa17/course-solutions/hw1/hw1-q5-while.sql'
+    baseball=# \i hw1-q5-while.sql
     DROP TABLE
     SELECT 0
     SELECT 0
-    SELECT 1587
+    SELECT 12192
     DROP TABLE
     ALTER TABLE
     DROP TABLE
     ALTER TABLE
-     count |  status
-    -------+----------
-      1587 | FINISHED
+     path_count |  status  
+    ------------+----------
+          12192 | FINISHED
     (1 row)
     ```
 
