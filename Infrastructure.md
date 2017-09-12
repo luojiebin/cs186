@@ -23,60 +23,96 @@ Homework 0 is designed to *initialize* these repositories. Be careful about re-r
 These steps create a new local repository. The basic tool that we will use is `git-clone`, which clones a repository into a newly created directory, creates remote-tracking branches for each branch in the cloned repository, and creates and checks out an initial branch that is forked from the cloned repository's currently active branch. You will use `git-clone` to make a copy of *your instructional github repository* and then synchronize this copy with the staff repository to keep it up-to-date.
 
 First, open your terminal and at the prompt type in the following command:
-    $ ls -ld course-projects
+```
+$ ls -ld course-projects
+```
 This command tests to see if you already have a `course-projects` repository. If you do the result of the command will look something like this:
-    drwxr-xr-x  6 vagrant  vagrant  204 Sep  6 11:51 course-projects
+```
+drwxr-xr-x  6 vagrant  vagrant  204 Sep  6 11:51 course-projects
+```
 If you have a `course-projects` directory, you should first rename it up before proceeding:
-    $ mv course-projects course-projects.backup
+```
+$ mv course-projects course-projects.backup
+```
 You can still access your old files through the `course-projects.backup` folder.
 
 Next, once you have confirmed that, you can clone the repository from github:
-    $ git clone https://github.com/berkeley-cs186/<xyz>.git course-projects
+```
+$ git clone https://github.com/berkeley-cs186/<xyz>.git course-projects
+```
 This creates a local repository in a new folder called `course-projects` that is a clone of your instructional repository.
 
 The next step is to synchronize this repository with the staff repository. First, enter the newly created directory:
-    $ cd course-projects
+```
+$ cd course-projects
+```
 Then, run the following command: 
-    $ git remote add staff https://github.com/berkeley-cs186/course.git
+```
+$ git remote add staff https://github.com/berkeley-cs186/course.git
+```
 This adds a reference to the staff course repository. Next, you need to fetch the files from the staff repository:
-    $ git fetch staff master
+```
+$ git fetch staff master
+```
 Finally, you have to merge the staff repository with your local repository:
-    $ git merge staff/master master
+```
+$ git merge staff/master master
+```
 
 ### Branching
 A branch in `git` is simply a pointer to a version of the repository. Branches allow you to setup a working copy that you will modify, while keeping a pristine copy of the course code that can be easily synchronized with the staff repository. 
 
 All of these commands will require first entering your local repository:
-    $ cd course-projects
+```
+$ cd course-projects
+```
 
 To see all of the branches in your local repository, run:
-    $ git branch --list
+```
+$ git branch --list
+```
 
 Your *current* branch should be listed in green. To switch branches, run:
-    $ git checkout <branch_name>
+```
+$ git checkout <branch_name>
+```
 
 To create a new branch and switch to it, run:
-    $ git checkout -b <new_branch_name>
+```
+$ git checkout -b <new_branch_name>
+```
 
 Before every homework assignment, you should create a new branch based off the master branch in the repository:
-    $ git checkout master
-    $ git checkout -b <hwN>
+```
+$ git checkout master
+$ git checkout -b <hwN>
+```
 
 ### Commiting and Pushing
 Once you create a branch for your homework assignment, then you can begin to edit the files. The purpose of `git` is to provide version control so you should quickly and frequently commit your changes to the repository. To do so, first run the command:
-    $ git add <filename>
+```
+$ git add <filename>
+```
 This stages the designated file for a commit, then run:
-    $ git commit -m <string describing the commit>
+```
+$ git commit -m <string describing the commit>
+```
 *Note: * this only commits the code to the local repository. This helps you with version control locally but will not submit your results.
 
 Committing frequently is useful because it allows you to rollback unwanted or undesired changes. You can look up previous commits by running:
-    $ git log --abbrev-commit
+```
+$ git log --abbrev-commit
+```
 Each commit is identified a 7 letter hash string. Running the command:
-    $ git reset <hash>
+```
+$ git reset <hash>
+```
 will reset your local repository to that commit. You may be tempted to use the option `--hard`, please be careful doing so and read through the git tutorial above to understand what it does.
 
 Every so often you should synchronize your local code with your instructional github repository. This is how course staff know that you have completed your assignment. First, commit all uncommitted code. Then, run:
-    $ git push origin <hwN>
+```
+$ git push origin <hwN>
+```
 This pushes your currently commited code on your current homework branch to the course repository. 
 To confirm that your code has properly pushed, you can visit the github web interface at https://github.com/berkeley-cs186/xyz. 
 Pushing frequently is a good idea. This backs up your files to your instructional github account. For example, if your VM gets corrupted or fails, you can still recover your latest pushed copy.
