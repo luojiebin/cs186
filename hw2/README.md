@@ -25,7 +25,7 @@ Next, run the following to pull the homework from GitHub and change to a new
 `hw2` branch:
 
 ```bash
-git pull origin master
+git pull staff master
 git checkout -b hw2
 ```
 
