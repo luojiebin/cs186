@@ -8,9 +8,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -101,6 +103,26 @@ public class TestLeafNode {
       }
     }
 
+    // HIDDEN
+    @Test
+    public void testNoOverflowOutOfOrderPuts()
+        throws BPlusTreeException, IOException {
+      int d = 2;
+      BPlusTreeMetadata meta = getBPlusTreeMetadata(Type.intType(), d);
+      LeafNode leaf = getEmptyLeaf(meta, Optional.empty());
+
+      assertEquals(Optional.empty(), leaf.put(d3, r3));
+      assertEquals(Optional.empty(), leaf.put(d1, r1));
+      assertEquals(Optional.empty(), leaf.put(d2, r2));
+      assertEquals(Optional.empty(), leaf.put(d0, r0));
+
+      for (int i = 0; i < 2*d; ++i) {
+        IntDataBox key = new IntDataBox(i);
+        RecordId rid = new RecordId(i, (short) i);
+        assertEquals(Optional.of(rid), leaf.getKey(key));
+      }
+    }
+
     @Test
     public void testNoOverflowPutsFromDisk()
         throws BPlusTreeException, IOException {
@@ -137,6 +159,7 @@ public class TestLeafNode {
       leaf.put(new IntDataBox(0), new RecordId(0, (short) 0));
     }
 
+    // HIDDEN
     @Test
     public void testOverflowPuts() throws BPlusTreeException, IOException {
       int d = 2;
@@ -200,7 +223,7 @@ public class TestLeafNode {
       BPlusTreeMetadata meta = getBPlusTreeMetadata(Type.intType(), d);
       LeafNode leaf = getEmptyLeaf(meta, Optional.empty());
 
-      // Inser entries.
+      // Insert entries.
       for (int i = 0; i < 2 * d; ++i) {
         IntDataBox key = new IntDataBox(i);
         RecordId rid = new RecordId(i, (short) i);
@@ -216,6 +239,37 @@ public class TestLeafNode {
       }
     }
 
+    // HIDDEN
+    @Test
+    public void testOutOfOrderRemoves() throws BPlusTreeException, IOException {
+      int d = 5;
+      BPlusTreeMetadata meta = getBPlusTreeMetadata(Type.intType(), d);
+      LeafNode leaf = getEmptyLeaf(meta, Optional.empty());
+
+      List<DataBox> keys = new ArrayList<>();
+      List<RecordId> rids = new ArrayList<>();
+      for (int i = 0; i < 2 * d; ++i) {
+        keys.add(new IntDataBox(i));
+        rids.add(new RecordId(i, (short) i));
+      }
+
+      // Insert entries in random order.
+      Collections.shuffle(keys, new Random(42));
+      Collections.shuffle(rids, new Random(42));
+      for (int i = 0; i < 2 * d; ++i) {
+        assertEquals(Optional.empty(), leaf.put(keys.get(i), rids.get(i)));
+      }
+
+      // Remove entries in random order.
+      Collections.shuffle(keys, new Random(42));
+      Collections.shuffle(rids, new Random(42));
+      for (int i = 0; i < 2 * d; ++i) {
+        leaf.remove(keys.get(i));
+        assertEquals(Optional.empty(), leaf.getKey(keys.get(i)));
+      }
+    }
+
+    // HIDDEN
     @Test
     public void testAbsentRemoves() throws BPlusTreeException, IOException {
       int d = 5;

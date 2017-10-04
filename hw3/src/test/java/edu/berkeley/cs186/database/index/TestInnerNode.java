@@ -240,7 +240,7 @@ public class TestInnerNode {
       rids1.add(3, rid);
       checkTreeMatchesExpectations();
 
-      // Add to leaf 1.
+      // Add to leaf 2.
       key = new IntDataBox(20);
       rid = new RecordId(20, (short) 20);
       assertEquals(Optional.empty(), inner.put(key, rid));
@@ -249,6 +249,7 @@ public class TestInnerNode {
       checkTreeMatchesExpectations();
     }
 
+    // HIDDEN
     @Test
     public void testOverflowPuts() throws BPlusTreeException, IOException {
       // Overflow the first leaf. The tree look like this:

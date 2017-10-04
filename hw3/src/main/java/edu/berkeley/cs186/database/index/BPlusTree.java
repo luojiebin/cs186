@@ -394,6 +394,9 @@ public class BPlusTree {
         if (sibling.isPresent()) {
           this.leaf = sibling.get();
           this.iter = this.leaf.scanAll();
+          if (!this.iter.hasNext()) {
+            advance();
+          }
         } else {
           this.leaf = null;
           this.iter = null;
